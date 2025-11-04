@@ -337,6 +337,3 @@ Diseñar las páginas con código sencillo.
 ```bash
 python manage.py runserver 8032
 ```
-
-```
-```
