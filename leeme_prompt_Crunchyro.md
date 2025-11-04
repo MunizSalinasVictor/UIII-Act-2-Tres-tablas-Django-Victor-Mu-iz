@@ -1,5 +1,3 @@
-
-````markdown
 # Primera parte  
 **Proyecto:** Crunchyroll  
 **Lenguaje:** Python  
@@ -31,8 +29,6 @@ En la terminal ejecutar:
 ```bash
 python -m venv .venv
 ````
-
----
 
 ### 5. Procedimiento para activar el entorno virtual
 
