@@ -1,115 +1,119 @@
-## **Primera parte**
+# Proyecto: UIII_Crunchyroll_0659 (Primera parte)
 
-**Proyecto:** Crunchyroll
 **Lenguaje:** Python
+
 **Framework:** Django
+
 **Editor:** VS Code
 
 ---
 
-### **1. Procedimiento para crear carpeta del Proyecto: `UIII_Crunchyroll_0659`**
+## Resumen
 
-1. Crear una carpeta desde el explorador de archivos con el nombre:
-   **UIII_Crunchyroll_0659**
-2. También se puede crear desde la terminal con el comando:
+Este documento contiene: 1) procedimiento paso a paso para crear el proyecto Django, 2) estructura completa de carpetas y archivos, 3) comandos concretos para terminal, 4) código de `models.py` (tal como proporcionado), 5) vistas (`views.py`) para CRUD de Suscripción, 6) `urls.py` de la app, 7) registros en `admin.py`, 8) instrucciones para templates (base, navbar, header, footer, inicio) y las plantillas de Suscripciones, 9) migraciones y ejecución en puerto `8032`.
 
-   ```bash
-   mkdir UIII_Crunchyroll_0659
-   ```
+> **Nota importante:** por indicación, **solo trabajaremos por ahora con el MODELO: Suscripcion**. Los modelos `Usuario` y `Contenido` quedan pendientes.
 
 ---
 
-### **2. Procedimiento para abrir VS Code sobre la carpeta `UIII_Crunchyroll_0659`**
+## 1. Crear carpeta del proyecto
 
-1. Abrir **VS Code**.
-2. En el menú, seleccionar: **Archivo → Abrir carpeta...**
-3. Seleccionar la carpeta **UIII_Crunchyroll_0659** y presionar **Aceptar**.
-4. Alternativamente, desde la terminal:
+**Nombre de la carpeta principal:** `UIII_Crunchyroll_0659`
 
-   ```bash
-   code UIII_Crunchyroll_0659
-   ```
+En el Explorador de archivos (o terminal):
 
----
-
-### **3. Procedimiento para abrir terminal en VS Code**
-
-1. En VS Code, ir al menú superior: **Ver → Terminal**
-2. Se abrirá una terminal integrada en la parte inferior del editor.
-
----
-
-### **4. Procedimiento para crear carpeta entorno virtual “.venv” desde terminal de VS Code**
-
-En la terminal de VS Code ejecutar:
-
-```bash
-python -m venv .venv
+```powershell
+mkdir UIII_Crunchyroll_0659
+cd UIII_Crunchyroll_0659
 ```
 
 ---
 
-### **5. Procedimiento para activar el entorno virtual**
+## 2. Abrir la carpeta en VS Code
 
-En la terminal, escribir según el sistema operativo:
+En VS Code: `File > Open Folder...` y seleccionar `UIII_Crunchyroll_0659`.
 
-* **Windows (PowerShell):**
+O desde terminal (si `code` está en PATH):
 
-  ```bash
-  .venv\Scripts\Activate
-  ```
-
-* **Windows (cmd):**
-
-  ```bash
-  .venv\Scripts\activate.bat
-  ```
-
-* **Linux/Mac:**
-
-  ```bash
-  source .venv/bin/activate
-  ```
+```powershell
+code .
+```
 
 ---
 
-### **6. Procedimiento para activar intérprete de python**
+## 3. Abrir terminal en VS Code
 
-1. Presionar `Ctrl + Shift + P` en VS Code.
-2. Escribir: **Python: Select Interpreter**
-3. Seleccionar el intérprete que tenga la ruta del entorno virtual:
+Desde VS Code: `Terminal > New Terminal`.
 
-   ```
-   .venv\Scripts\python.exe
-   ```
+(Se abrirá por defecto en la ruta del proyecto `UIII_Crunchyroll_0659`.)
 
 ---
 
-### **7. Procedimiento para instalar Django**
+## 4. Crear carpeta entorno virtual `.venv` desde terminal (Windows)
 
-En la terminal (con el entorno virtual activo) escribir:
+```powershell
+python -m venv .venv
+```
+
+Esto crea la carpeta oculta (o no) `.venv` dentro de `UIII_Crunchyroll_0659`.
+
+---
+
+## 5. Activar el entorno virtual
+
+**Windows (PowerShell):**
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+**Windows (cmd):**
+
+```cmd
+.\.venv\Scripts\activate
+```
+
+**Linux / macOS:**
+
+```bash
+source .venv/bin/activate
+```
+
+(Tras activarlo verás `(.venv)` en el prompt.)
+
+---
+
+## 6. Seleccionar intérprete de Python en VS Code
+
+En VS Code: `Ctrl+Shift+P` → `Python: Select Interpreter` → elegir `.venv` (aparecerá en la lista como `.venv\Scripts\python.exe`).
+
+---
+
+## 7. Instalar Django
+
+Con el entorno activado:
 
 ```bash
 pip install django
 ```
 
+(Se recomienda `pip install django==4.2` si quiere una versión específica, pero no es obligatorio.)
+
 ---
 
-### **8. Procedimiento para crear proyecto backend_Crunchyroll sin duplicar carpeta**
+## 8. Crear proyecto `backend_Crunchyroll` sin duplicar carpeta
 
-En la terminal dentro de la carpeta del proyecto:
+Dentro de `UIII_Crunchyroll_0659` ejecutar:
 
 ```bash
 django-admin startproject backend_Crunchyroll .
 ```
 
-El punto final evita que se cree una carpeta duplicada.
+**Importante:** el `.` final evita que se cree una carpeta extra `backend_Crunchyroll/backend_Crunchyroll`.
 
 ---
 
-### **9. Procedimiento para ejecutar servidor en el puerto 8032**
-
-En la terminal:
+## 9. Ejecutar servidor en el puerto 8032 (temporalmente antes de crear app)
 
 ```bash
 python manage.py runserver 8032
@@ -117,20 +121,15 @@ python manage.py runserver 8032
 
 ---
 
-### **10. Procedimiento para copiar y pegar el link en el navegador**
+## 10. Copiar y pegar el link en el navegador
 
-1. Después de ejecutar el comando anterior, se mostrará un enlace como:
-
-   ```
-   http://127.0.0.1:8032/
-   ```
-2. Copiar y pegar ese enlace en el navegador.
+El servidor mostrará una url similar a `http://127.0.0.1:8032/`. Copiarla y abrir en el navegador.
 
 ---
 
-### **11. Procedimiento para crear aplicacion app_Crunchyroll**
+## 11. Crear aplicación `app_Crunchyroll`
 
-En la terminal:
+Con el entorno activado y en la raíz del proyecto:
 
 ```bash
 python manage.py startapp app_Crunchyroll
@@ -138,7 +137,9 @@ python manage.py startapp app_Crunchyroll
 
 ---
 
-### **12. Aqui el modelo models.py**
+## 12. `models.py` (usar exactamente el contenido proporcionado)
+
+Colocar este código dentro de `app_Crunchyroll/models.py` **sin modificar nada** (tal como fue entregado):
 
 ```python
 from django.db import models
@@ -155,11 +156,13 @@ class Suscripcion(models.Model):
     beneficio_extra = models.TextField()
     descarga_offline = models.BooleanField(default=False)
     
+    # Relación muchos a muchos: una suscripción puede tener varios contenidos exclusivos
     contenidos_exclusivos = models.ManyToManyField(
         'Contenido', 
         related_name='suscripciones_exclusivas',
         blank=True
     )
+    # Relación muchos a muchos: una suscripción puede tener varios usuarios premium
     usuarios_premium = models.ManyToManyField(
         'Usuario', 
         related_name='suscripciones_adicionales',
@@ -188,6 +191,7 @@ class Contenido(models.Model):
     categoria = models.IntegerField()
     capitulos = models.CharField(max_length=5)
     
+    # Relación 1 a muchos: una suscripción puede tener varios contenidos principales
     suscripcion = models.ForeignKey(
         Suscripcion, 
         on_delete=models.CASCADE,
@@ -210,6 +214,7 @@ class Usuario(models.Model):
     fecha_registro = models.DateField(auto_now_add=True)
     activo = models.BooleanField(default=True)
     
+    # Relación 1 a muchos: una suscripción puede tener varios usuarios principales
     suscripcion = models.ForeignKey(
         Suscripcion, 
         on_delete=models.CASCADE,
@@ -225,42 +230,212 @@ class Usuario(models.Model):
 
 ---
 
-### **12.5 Procedimiento para realizar las migraciones (makemigrations y migrate)**
+## 12. Procedimiento para realizar migraciones
+
+1. Crear migraciones para la app:
 
 ```bash
-python manage.py makemigrations
+python manage.py makemigrations app_Crunchyroll
+```
+
+2. Aplicar migraciones:
+
+```bash
 python manage.py migrate
+```
+
+> Si agregas `app_Crunchyroll` a `INSTALLED_APPS` después, vuelve a ejecutar `makemigrations` y `migrate`.
+
+---
+
+## 13. Empezar trabajando solo con `Suscripcion`
+
+Por ahora definirás vistas y templates que solo manipulen el modelo `Suscripcion`.
+
+---
+
+## 14. `views.py` — funciones para Suscripción (CRUD)
+
+Coloca este código en `app_Crunchyroll/views.py`. No usamos `forms.py` ni validaciones; usaremos `request.POST` y `redirect`.
+
+```python
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Suscripcion
+from django.urls import reverse
+
+# Inicio del sistema
+def inicio_crunchyroll(request):
+    return render(request, 'inicio.html')
+
+# Agregar Suscripción (muestra formulario y crea)
+def agregar_Suscripcion(request):
+    if request.method == 'POST':
+        nombre_plan = request.POST.get('nombre_plan')
+        precio = request.POST.get('precio')
+        calidad_video = request.POST.get('calidad_video')
+        num_dispositivos = request.POST.get('num_dispositivos')
+        beneficio_extra = request.POST.get('beneficio_extra')
+        descarga_offline = True if request.POST.get('descarga_offline') == 'on' else False
+
+        Suscripcion.objects.create(
+            nombre_plan=nombre_plan,
+            precio=precio,
+            calidad_video=calidad_video,
+            num_dispositivos=num_dispositivos,
+            beneficio_extra=beneficio_extra,
+            descarga_offline=descarga_offline
+        )
+        return redirect('ver_Suscripciones')
+
+    return render(request, 'suscripciones/agregar_Suscripciones.html')
+
+# Ver Suscripciones
+def ver_Suscripciones(request):
+    suscripciones = Suscripcion.objects.all()
+    return render(request, 'suscripciones/ver_Suscripciones.html', {'suscripciones': suscripciones})
+
+# Mostrar formulario de actualización
+def actualizar_Suscripcion(request, suscripcion_id):
+    sus = get_object_or_404(Suscripcion, id=suscripcion_id)
+    return render(request, 'suscripciones/actualizar_Suscripciones.html', {'suscripcion': sus})
+
+# Procesar actualización
+def realizar_actualizacion_Suscripcion(request, suscripcion_id):
+    sus = get_object_or_404(Suscripcion, id=suscripcion_id)
+    if request.method == 'POST':
+        sus.nombre_plan = request.POST.get('nombre_plan')
+        sus.precio = request.POST.get('precio')
+        sus.calidad_video = request.POST.get('calidad_video')
+        sus.num_dispositivos = request.POST.get('num_dispositivos')
+        sus.beneficio_extra = request.POST.get('beneficio_extra')
+        sus.descarga_offline = True if request.POST.get('descarga_offline') == 'on' else False
+        sus.save()
+        return redirect('ver_Suscripciones')
+    return redirect('actualizar_Suscripcion', suscripcion_id=sus.id)
+
+# Borrar Suscripción
+def borrar_Suscripcion(request, suscripcion_id):
+    sus = get_object_or_404(Suscripcion, id=suscripcion_id)
+    sus.delete()
+    return redirect('ver_Suscripciones')
 ```
 
 ---
 
-### **13. Primero trabajamos con el MODELO: Suscripcion**
+## 15. Crear carpeta `templates` dentro de `app_Crunchyroll`
+
+Ruta: `app_Crunchyroll/templates/`.
+
+Dentro crear:
+
+* `base.html`
+* `header.html`
+* `navbar.html`
+* `footer.html`
+* `inicio.html`
+
+Y la subcarpeta `suscripciones/` con las plantillas de CRUD (ver sección 21-22).
 
 ---
 
-### **14. En view de app_Crunchyroll crear las funciones con sus códigos correspondientes**
+## 16–17. `base.html` + incluir Bootstrap (CSS y JS)
 
-Funciones:
+En `templates/base.html` usar el siguiente patrón (sencillo):
 
-* inicio_crunchyroll
-* agregar_Suscripcion
-* actualizar_Suscripcion
-* realizar_actualizacion_Suscripcion
-* borrar_Suscripcion
+```html
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Crunchyroll Admin{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons (para iconos) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    {% block extra_head %}{% endblock %}
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    {% include 'header.html' %}
+    {% include 'navbar.html' %}
+
+    <main class="container my-4">
+      {% block content %}{% endblock %}
+    </main>
+
+    {% include 'footer.html' %}
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    {% block extra_js %}{% endblock %}
+  </body>
+</html>
+```
 
 ---
 
-### **15. Crear la carpeta “templates” dentro de “app_Crunchyroll”**
+## 18. `navbar.html` con menú y submenús
+
+Archivo `templates/navbar.html` con estructura solicitada (opciones principales con iconos; submenus sin iconos):
+
+* Sistema de Administración Crunchyroll
+* Inicio
+* Suscripción -> (Agregar Suscripción, Ver Suscripción, Actualizar Suscripción, Borrar Suscripción)
+* Usuarios -> (Agregar, Ver, Actualizar, Borrar) — *pendiente de implementar*
+* Contenido -> (Agregar, Ver, Actualizar, Borrar) — *pendiente*
+
+> Usar Bootstrap Collapse/Dropdown para submenús.
 
 ---
 
-### **16. En la carpeta templates crear los archivos html (base.html, header.html, navbar.html, footer.html, inicio.html)**
+## 19. `footer.html`
+
+Fijo al final, con derechos de autor, fecha del sistema y texto: "Creado por Victor Muñiz, Cbtis 128".
+
+Ejemplo (en `templates/footer.html`):
+
+```html
+<footer class="mt-auto py-3 bg-light" style="position: sticky; bottom: 0;">
+  <div class="container text-center small">
+    &copy; {{ now|date:"Y" }} Crunchyroll Admin. Creado por Victor Muñiz, Cbtis 128.
+  </div>
+</footer>
+```
+
+(Nota: si quieres fijarlo siempre al fondo de la ventana, se puede usar CSS `position: fixed; bottom:0; width:100%`.)
 
 ---
 
-### **17. En el archivo base.html agregar bootstrap para css y js**
+## 20. `inicio.html`
+
+Plantilla que hereda `base.html` y muestra información del sistema y una imagen tomada desde la red sobre "cinepolis" (usar `<img src="...">` con URL pública). Debe usar colores suaves y diseño simple.
 
 ---
+
+## 21. Subcarpeta `suscripciones`
+
+Ruta: `app_Crunchyroll/templates/suscripciones/`
+
+Archivos que se crearán:
+
+* `agregar_Suscripciones.html`
+* `ver_Suscripciones.html` (tabla con botones ver, editar, borrar)
+* `actualizar_Suscripciones.html`
+* `Suscripciones.html` (opcional resumen)
+
+---
+
+## 22. Contenido de las plantillas de Suscripciones (resumen)
+
+Las plantillas deben ser simples: usar formularios HTML con `method="post"` y `csrf_token`.
+
+**ver_Suscripciones.html** mostrará una tabla con todas las suscripciones y botones para `Editar` (enlace a `actualizar_Suscripcion`), `Borrar` (enlace a `borrar_Suscripcion`) y `Ver` (puede redirigir a la misma página o a una vista detalle si se implementa).
+
+**agregar_Suscripciones.html**: formulario para crear.
+
+**actualizar_Suscripciones.html**: formulario pre-llenado con los datos de la suscripción.
+
+> *No usar `forms.py` ni validac
 
 ### **18. En el archivo navbar.html incluir las opciones**
 
