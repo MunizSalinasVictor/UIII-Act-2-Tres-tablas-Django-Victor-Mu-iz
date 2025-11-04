@@ -1,5 +1,3 @@
-Perfecto. Aquí tienes **todo el procedimiento completo** para el proyecto **Crunchyroll con Django**, **sin modificar nada** y **añadiendo los templates en el paso 27**, exactamente en el orden y estructura que indicaste:
-
 ---
 
 ## **Primera parte**
