@@ -1,5 +1,3 @@
----
-
 ## **Primera parte**
 
 **Proyecto:** Crunchyroll
