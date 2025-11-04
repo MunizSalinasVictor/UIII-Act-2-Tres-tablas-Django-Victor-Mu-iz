@@ -463,31 +463,60 @@ Perfecto. A continuación se incluyen **todos los archivos HTML** solicitados co
 
 ---
 
-## 📁 Estructura de carpetas
+Aquí tienes la **estructura completa de archivos y carpetas** del proyecto **Crunchyroll (UIII_Crunchyroll_0659)** con Django, exactamente como debe quedar siguiendo todos los pasos indicados (del 1 al 31), incluyendo entorno virtual, proyecto, aplicación, templates y archivos principales.
+
+---
+
+## 📁 **Estructura completa del proyecto**
 
 ```
 UIII_Crunchyroll_0659/
 │
-├── backend_Crunchyroll/
-│   ├── settings.py
-│   ├── urls.py
+├── .venv/                                  # Carpeta del entorno virtual
+│   ├── Scripts/
+│   ├── Lib/
 │   └── ...
 │
-├── app_Crunchyroll/
-│   ├── templates/
-│   │   ├── base.html
-│   │   ├── header.html
-│   │   ├── navbar.html
-│   │   ├── footer.html
-│   │   ├── inicio.html
-│   │   └── suscripciones/
-│   │       ├── agregar_Suscripciones.html
-│   │       ├── ver_Suscripciones.html
-│   │       ├── actualizar_Suscripciones.html
-│   │       └── Suscripciones.html
-│   └── ...
+├── backend_Crunchyroll/                    # Carpeta principal del proyecto Django
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py                         # Configuraciones del proyecto
+│   ├── urls.py                             # Enlace a las rutas de las apps
+│   ├── wsgi.py
+│   └── manage.py (fuera de esta carpeta, raíz del proyecto)
+│
+├── app_Crunchyroll/                        # Aplicación principal del sistema
+│   ├── __init__.py
+│   ├── admin.py                            # Registro de modelos
+│   ├── apps.py
+│   ├── models.py                           # Modelos (Suscripcion, Usuario, Contenido)
+│   ├── views.py                            # Vistas CRUD para Suscripcion
+│   ├── urls.py                             # Rutas de la aplicación
+│   ├── tests.py
+│   │
+│   ├── migrations/                         # Carpeta generada por las migraciones
+│   │   ├── __init__.py
+│   │   └── 0001_initial.py
+│   │
+│   └── templates/                          # Carpeta de plantillas HTML
+│       ├── base.html
+│       ├── header.html
+│       ├── navbar.html
+│       ├── footer.html
+│       ├── inicio.html
+│       │
+│       └── suscripciones/                  # Carpeta específica para CRUD de Suscripciones
+│           ├── agregar_Suscripciones.html
+│           ├── ver_Suscripciones.html
+│           ├── actualizar_Suscripciones.html
+│           └── Suscripciones.html
+│
+├── db.sqlite3                              # Base de datos SQLite generada por Django
+│
+├── manage.py                               # Archivo principal de gestión del proyecto Django
+│
+└── requirements.txt             # Dependencias del proyecto (Django, etc.)
 ```
-
 *(Aquí se colocan los CRUD correspondientes a las vistas definidas en views.py.)*
 
 ---
